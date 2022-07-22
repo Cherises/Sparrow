@@ -2,12 +2,6 @@ import json
 import socket
 import threading
 
-"""
-这个是用于控制服务端的控制端程序，客户端除了初始化过程，是不会主动与服务端交涉，而控制端恰恰相反
-注意：根据规则，所有的发送和接受第一份必须是报头文件，从报头文件解析后才开始分支是继续接收还是返回结果
-
-"""
-
 handle = {
     'device': 'control',
     'address': 'all',
@@ -18,7 +12,6 @@ handle = {
 }
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
 sock.connect(('192.168.172.200', 9574))
 
 
