@@ -3,9 +3,7 @@ import socket
 import threading
 
 """
-这个是用于被动控制的客户端，用来被动接受命令并返回运行结果
 注意：根据规则，所有的发送和接受第一份必须是报头文件，从报头文件解析后才开始分支是继续接收还是返回结果
-
 """
 handle = {
     'device': 'client',
@@ -17,7 +15,6 @@ handle = {
 }
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
 sock.connect(('192.168.172.200', 9574))
 
 
@@ -44,5 +41,5 @@ def send_message(value):
 if __name__ == '__main__':
     send_message('cli')
     print("alreadly!")
-    thread = threading.Thread(target=receive_message, daemon=True)
+    thread = threading.Thread(target=receive_message)
     thread.start()
