@@ -67,8 +67,6 @@ def receive_message(address):
             elif receive_info['type'] == 'listpath':
                 server_client_socket[receive_info['address']].send(data_message)
             elif receive_info['type'] == 'answer_listpath':
-                print("####################")
-                print(receive_info)
                 server_client_socket[control_address].send(data_message)
                 # global receive_msg
                 receive_len = 0
